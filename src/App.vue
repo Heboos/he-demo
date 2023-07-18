@@ -2,317 +2,178 @@
  * @Author: xiaohe
  * @Date: 2023-06-07 10:54:51
  * @LastEditors: xiaohe xiaohe@moziapi.com
- * @LastEditTime: 2023-06-12 14:15:08
+ * @LastEditTime: 2023-07-18 12:19:35
  * @FilePath: /chromeProductList/src/App.vue
 -->
 <script setup lang="ts">
-import { InfoCircleIcon, JumpIcon, SwapIcon } from "tdesign-icons-vue-next";
-import { ref, watch } from "vue";
-import {
-  productBrand,
-  productTimeDay,
-  productTime,
-  productSalesRateD30,
-} from "../src/hooks/productListInfo";
+// import { InfoCircleIcon, JumpIcon, SwapIcon } from "tdesign-icons-vue-next";
+// import { ref, watch } from "vue";
+// import {
+//   productBrand,
+//   productTimeDay,
+//   productTime,
+//   productSalesRateD30,
+// } from "../src/hooks/productListInfo";
 
-import HelloWorld from "./components/HelloWorld.vue";
+// import HelloWorld from "./components/HelloWorld.vue";
 
-const itemid = ref('123123');
-const site = ref('sg');
-const goshopdora = () => {};
+// const itemid = ref('123123');
+// const site = ref('sg');
+// const goshopdora = () => {};
 
-const productList: any = ref({
-  // 商品id
-  itemId: itemid.value,
-  // 价格
-  price: null,
-  price_cny: null,
-  price_max: null,
-  price_max_cny: null,
-  price_min: null,
-  price_min_cny: null,
-  // 店铺
-  username: null,
-  // 店铺类型
-  sellerSource: 0,
-  // 品牌
-  brand: null,
-  // 搜索类目
-  cateLocalPath: null,
-  // 本地语言类目
-  cateName: null,
-  // 中文类目
-  cateChPath: null,
-  // 月销量排名
-  salestMRank: null,
-  // 上架时间
-  ctime: null,
-  // 上架天数
-  ctimeDay: null,
-  // 近1日销量
-  sales1Day: null,
-  // 近7日销量
-  sales7Day: null,
-  // 近30日销量
-  sales30Day: null,
-  // 总销量
-  sales: null,
-  // 近30日增长率
-  salesGrowthRateM: null,
-  // 近30日销售额（本土）
-  salesAmount30Day: null,
-  // 近30日销售额（人民币）
-  salesAmount30DayUnit: null,
-  // 总销售额（本土）
-  salesAmount: null,
-  // 总销售额（人民币）
-  salesAmountUnit: null,
-});
-const salesAmount30DayUnitType = ref(true);
-const salesAmountUnitType = ref(true);
-const exChangeRate: any = ref({
-  br: 0.68999,
-  tw: 4.3175,
-  sg: 0.1889,
-  th: 4.8865,
-  ph: 7.8921,
-  vn: 3297.0,
-  id: 2086.6,
-  mx: 2.44903,
-  my: 0.64699,
-});
-const productShopeeList: any = ref({
-  brand: 'apple',
-  image: '5fba173d834f2615c08f7cf4f22a6cac',
-  images: [
-    '5fba173d834f2615c08f7cf4f22a6cac',
-    '28890d386e9d185624400bcad294178a',
-    'e27321ae1821c506a39cedfef4a43bad',
-    'a248a6bb75ef71251311c9f01d748560',
-    'b25cf81360cd99631bdf0a846428021e',
-    '1d757feb8be3e87cd80666e4ebc5c3b0',
-    '5ae0b1ba248e61fc71b727ef66fa697d',
-    'f3a09047eca2fd474a478445501555a1',
-    '0a1e750b06659a410514e9f51ce36fab',
-  ],
-  itemid: 6250395408,
-  price: 647000,
-  shopid: 139268812,
-  sold: 160,
-  video_info_list: [],
-  historical_sold: 4199,
-  ctime: 1599027817,
-  name: '3 Month Warranty 116 Plus Smart Watch Blood Pressure Heart Rate Monitor Waterproof Fitness Tracker Watch Smart Band',
-  price_max: 647000,
-  price_min: 647000,
-  checked: true,
-});
+// const productList: any = ref({
+//   // 商品id
+//   itemId: itemid.value,
+//   // 价格
+//   price: null,
+//   price_cny: null,
+//   price_max: null,
+//   price_max_cny: null,
+//   price_min: null,
+//   price_min_cny: null,
+//   // 店铺
+//   username: null,
+//   // 店铺类型
+//   sellerSource: 0,
+//   // 品牌
+//   brand: null,
+//   // 搜索类目
+//   cateLocalPath: null,
+//   // 本地语言类目
+//   cateName: null,
+//   // 中文类目
+//   cateChPath: null,
+//   // 月销量排名
+//   salestMRank: null,
+//   // 上架时间
+//   ctime: null,
+//   // 上架天数
+//   ctimeDay: null,
+//   // 近1日销量
+//   sales1Day: null,
+//   // 近7日销量
+//   sales7Day: null,
+//   // 近30日销量
+//   sales30Day: null,
+//   // 总销量
+//   sales: null,
+//   // 近30日增长率
+//   salesGrowthRateM: null,
+//   // 近30日销售额（本土）
+//   salesAmount30Day: null,
+//   // 近30日销售额（人民币）
+//   salesAmount30DayUnit: null,
+//   // 总销售额（本土）
+//   salesAmount: null,
+//   // 总销售额（人民币）
+//   salesAmountUnit: null,
+// });
+// const salesAmount30DayUnitType = ref(true);
+// const salesAmountUnitType = ref(true);
+// const exChangeRate: any = ref({
+//   br: 0.68999,
+//   tw: 4.3175,
+//   sg: 0.1889,
+//   th: 4.8865,
+//   ph: 7.8921,
+//   vn: 3297.0,
+//   id: 2086.6,
+//   mx: 2.44903,
+//   my: 0.64699,
+// });
+// const productShopeeList: any = ref({
+//   brand: 'apple',
+//   image: '5fba173d834f2615c08f7cf4f22a6cac',
+//   images: [
+//     '5fba173d834f2615c08f7cf4f22a6cac',
+//     '28890d386e9d185624400bcad294178a',
+//     'e27321ae1821c506a39cedfef4a43bad',
+//     'a248a6bb75ef71251311c9f01d748560',
+//     'b25cf81360cd99631bdf0a846428021e',
+//     '1d757feb8be3e87cd80666e4ebc5c3b0',
+//     '5ae0b1ba248e61fc71b727ef66fa697d',
+//     'f3a09047eca2fd474a478445501555a1',
+//     '0a1e750b06659a410514e9f51ce36fab',
+//   ],
+//   itemid: 6250395408,
+//   price: 647000,
+//   shopid: 139268812,
+//   sold: 160,
+//   video_info_list: [],
+//   historical_sold: 4199,
+//   ctime: 1599027817,
+//   name: '3 Month Warranty 116 Plus Smart Watch Blood Pressure Heart Rate Monitor Waterproof Fitness Tracker Watch Smart Band',
+//   price_max: 647000,
+//   price_min: 647000,
+//   checked: true,
+// });
 
-const productBasicInfoList: any = ref({
-  itemId: '6250395408',
-  username: 'chengaii.sg',
-  name: 'chengaii.sg',
-  brand: 'apple1',
-  cateId: '100270',
-  cateChPath: '手机平板与配件-智能穿戴设备-智能手表 & 手环',
-  cateLocalPath: '',
-  cateName: '智能手表 & 手环',
-  salestMRank: 9,
-  shelfTime: '1598976000',
-  shelfTimeToNow: 29705,
-  sellerSource: 2,
-});
-const productInfoList: any = ref({
-  itemId: '6250395408',
-  sales1Day: 2713,
-  sales7Day: null,
-  sales30Day: 201,
-  salesGrowthRateM: -147,
-  salesAmountM: '154604376',
-  sales: 201,
-  salesAmount: '154604376',
-  monitor: false,
-});
-watch(
-  () => [productShopeeList.value, productBasicInfoList.value, productInfoList.value],
-  (newValue) => {
-    if (newValue[0] || newValue[1] || newValue[2]) {
-      productList.value.brand = productBrand(newValue[0]?.brand, newValue[1]?.brand);
-      productList.value.ctime = productTime(newValue[0]?.ctime, newValue[1]?.shelfTime);
-      productList.value.ctimeDay = productTimeDay(newValue[0]?.ctime, newValue[1]?.shelfTime);
-      productList.value.cateName = newValue[1]?.cateName ?? null;
-      productList.value.cateChPath = newValue[1]?.cateChPath ?? null;
-      productList.value.cateLocalPath = newValue[1]?.cateLocalPath ?? null;
-      productList.value.salestMRank = newValue[1]?.salestMRank ?? null;
-      productList.value.username = newValue[1]?.username ?? null;
-      productList.value.sales1Day = newValue[2]?.sales1Day ?? null;
-      productList.value.sales7Day = newValue[2]?.sales7Day ?? null;
-      productList.value.sales30Day = newValue[0]?.sold ?? newValue[2]?.sales30Day;
-      productList.value.sales = newValue[0]?.historical_sold ?? newValue[2]?.sales;
-      productList.value.salesGrowthRateM = productSalesRateD30(newValue[2]?.salesGrowthRateM);
-      productList.price = newValue[0]?.price ? (newValue[0]?.price / 100000).toFixed(2) : null;
-      productList.price_cny = newValue[0]?.price
-        ? (newValue[0]?.price / 100000 / exChangeRate.value[site.value]).toFixed(2)
-        : null;
-      productList.price_max = newValue[0]?.price_max ? (newValue[0]?.price_max / 100000).toFixed(2) : null;
-      productList.price_max_cny = newValue[0]?.price_max
-        ? (newValue[0]?.price_max / 100000 / exChangeRate.value[site.value]).toFixed(2)
-        : null;
-      productList.price_min = newValue[0]?.price_min ? (newValue[0]?.price_min / 100000).toFixed(2) : null;
-      productList.price_min_cny = newValue[0]?.price_min
-        ? (newValue[0]?.price_min / 100000 / exChangeRate.value[site.value]).toFixed(2)
-        : null;
-      productList.value.salesAmount30Day = `$${productList.value.sales30Day * productList.price}`;
-      productList.value.salesAmount30DayUnit = `¥${productList.value.sales30Day * productList.price_cny}`;
-      productList.value.salesAmount = `$${productList.value.sales * productList.price}`;
-      productList.value.salesAmountUnit = `¥${productList.value.sales * productList.price_cny}`;
-    }
-  },
-  { deep: true, immediate: true },
-);
+// const productBasicInfoList: any = ref({
+//   itemId: '6250395408',
+//   username: 'chengaii.sg',
+//   name: 'chengaii.sg',
+//   brand: 'apple1',
+//   cateId: '100270',
+//   cateChPath: '手机平板与配件-智能穿戴设备-智能手表 & 手环',
+//   cateLocalPath: '',
+//   cateName: '智能手表 & 手环',
+//   salestMRank: 9,
+//   shelfTime: '1598976000',
+//   shelfTimeToNow: 29705,
+//   sellerSource: 2,
+// });
+// const productInfoList: any = ref({
+//   itemId: '6250395408',
+//   sales1Day: 2713,
+//   sales7Day: null,
+//   sales30Day: 201,
+//   salesGrowthRateM: -147,
+//   salesAmountM: '154604376',
+//   sales: 201,
+//   salesAmount: '154604376',
+//   monitor: false,
+// });
+// watch(
+//   () => [productShopeeList.value, productBasicInfoList.value, productInfoList.value],
+//   (newValue) => {
+//     if (newValue[0] || newValue[1] || newValue[2]) {
+//       productList.value.brand = productBrand(newValue[0]?.brand, newValue[1]?.brand);
+//       productList.value.ctime = productTime(newValue[0]?.ctime, newValue[1]?.shelfTime);
+//       productList.value.ctimeDay = productTimeDay(newValue[0]?.ctime, newValue[1]?.shelfTime);
+//       productList.value.cateName = newValue[1]?.cateName ?? null;
+//       productList.value.cateChPath = newValue[1]?.cateChPath ?? null;
+//       productList.value.cateLocalPath = newValue[1]?.cateLocalPath ?? null;
+//       productList.value.salestMRank = newValue[1]?.salestMRank ?? null;
+//       productList.value.username = newValue[1]?.username ?? null;
+//       productList.value.sales1Day = newValue[2]?.sales1Day ?? null;
+//       productList.value.sales7Day = newValue[2]?.sales7Day ?? null;
+//       productList.value.sales30Day = newValue[0]?.sold ?? newValue[2]?.sales30Day;
+//       productList.value.sales = newValue[0]?.historical_sold ?? newValue[2]?.sales;
+//       productList.value.salesGrowthRateM = productSalesRateD30(newValue[2]?.salesGrowthRateM);
+//       productList.price = newValue[0]?.price ? (newValue[0]?.price / 100000).toFixed(2) : null;
+//       productList.price_cny = newValue[0]?.price
+//         ? (newValue[0]?.price / 100000 / exChangeRate.value[site.value]).toFixed(2)
+//         : null;
+//       productList.price_max = newValue[0]?.price_max ? (newValue[0]?.price_max / 100000).toFixed(2) : null;
+//       productList.price_max_cny = newValue[0]?.price_max
+//         ? (newValue[0]?.price_max / 100000 / exChangeRate.value[site.value]).toFixed(2)
+//         : null;
+//       productList.price_min = newValue[0]?.price_min ? (newValue[0]?.price_min / 100000).toFixed(2) : null;
+//       productList.price_min_cny = newValue[0]?.price_min
+//         ? (newValue[0]?.price_min / 100000 / exChangeRate.value[site.value]).toFixed(2)
+//         : null;
+//       productList.value.salesAmount30Day = `$${productList.value.sales30Day * productList.price}`;
+//       productList.value.salesAmount30DayUnit = `¥${productList.value.sales30Day * productList.price_cny}`;
+//       productList.value.salesAmount = `$${productList.value.sales * productList.price}`;
+//       productList.value.salesAmountUnit = `¥${productList.value.sales * productList.price_cny}`;
+//     }
+//   },
+//   { deep: true, immediate: true },
+// );
 </script>
 
 <template>
-  <div id="shopdora-list-item">
-    <div class="shopdora-list-item-log">
-      <div class="img">
-        <img src="../src/assets/logo.png" alt="" />
-      </div>
-      <div style="color: #fd6012; cursor: pointer">
-        <t-tooltip content="去Shopdora官网">
-          <JumpIcon @click="goshopdora" />
-        </t-tooltip>
-      </div>
-    </div>
-    <div class="shopdora-list-item-info">
-      <div class="shopdora-list-item-info-item">
-        <div class="shopdora-list-item-info-item-title">商品id:</div>
-        <div class="shopdora-list-item-info-item-main">
-          <span class="shopdora-list-item-info-item-main-span basic-info span-cuesor">{{ itemid }}</span>
-          <span class="shopdora-list-item-info-item-main-icon"
-            ><img
-              src="../src/assets/copy1.png"
-              style="width: 14px; height: 14px; display: inline-block; margin-bottom: -5px"
-          /></span>
-        </div>
-      </div>
-      <div class="shopdora-list-item-info-item">
-        <div class="shopdora-list-item-info-item-title">卖家:</div>
-        <div class="shopdora-list-item-info-item-main">
-          <span class="shopdora-list-item-info-item-main-span basic-info span-cuesor">{{
-            productList.username ?? '未收录'
-          }}</span>
-
-        </div>
-      </div>
-      <div class="shopdora-list-item-info-item">
-        <div class="shopdora-list-item-info-item-title">品牌:</div>
-        <div class="shopdora-list-item-info-item-main">
-          <span class="shopdora-list-item-info-item-main-span basic-info span-cuesor">{{
-            productList.brand ?? '未收录'
-          }}</span>
-        </div>
-      </div>
-      <div class="shopdora-list-item-info-item">
-        <div class="shopdora-list-item-info-item-title">类目:</div>
-        <div class="shopdora-list-item-info-item-main">
-          <span class="shopdora-list-item-info-item-main-span basic-info span-cuesor">{{
-            productList.cateChPath ?? '未收录'
-          }}</span>
-          <span class="shopdora-list-item-info-item-main-icon" v-if="productList.cateChPath"
-            ><InfoCircleIcon size="12px"
-          /></span>
-        </div>
-      </div>
-      <div class="shopdora-list-item-info-item" style="height: 10px" v-if="productList.salestMRank">
-        <div class="shopdora-list-item-info-item-title"></div>
-        <div class="shopdora-list-item-info-item-main sales-ranking">
-          {{ `(月销量排名${productList.salestMRank})` }}
-        </div>
-      </div>
-      <div class="shopdora-list-item-info-item">
-        <div class="shopdora-list-item-info-item-title">上架时间:</div>
-        <div class="shopdora-list-item-info-item-main">
-          {{ `${productList.ctime ?? '未收录'}` }}
-        </div>
-      </div>
-      <div class="shopdora-list-item-info-item" style="height: 10px" v-if="productList.ctimeDay">
-        <div class="shopdora-list-item-info-item-title"></div>
-        <div class="shopdora-list-item-info-item-main sales-ranking" style="margin-left: 22px">
-          {{ `(${productList.ctimeDay}天)` }}
-        </div>
-      </div>
-    </div>
-    <div class="shopdora-list-item-hr"></div>
-    <div class="shopdora-list-item-info">
-      <div class="shopdora-list-item-info-item">
-        <div class="shopdora-list-item-info-item-title">近1日/7日销量:</div>
-        <div class="shopdora-list-item-info-item-main">
-          <span class="shopdora-list-item-info-item-main-span span-cuesor">{{
-            `${productList.sales1Day ?? '未收录'}/${productList.sales7Day ?? '未收录'}`
-          }}</span>
-        </div>
-      </div>
-      <div class="shopdora-list-item-info-item">
-        <div class="shopdora-list-item-info-item-title">近30日销量:</div>
-        <div class="shopdora-list-item-info-item-main">
-          <span class="shopdora-list-item-info-item-main-span span-cuesor">{{
-            productList.sales30Day ?? '未收录'
-          }}</span>
-        </div>
-      </div>
-      <div class="shopdora-list-item-info-item">
-        <div class="shopdora-list-item-info-item-title">近30日销量增长率:</div>
-        <div class="shopdora-list-item-info-item-main">
-          <span class="shopdora-list-item-info-item-main-span span-cuesor">{{
-            productList.salesGrowthRateM ?? '未收录'
-          }}</span>
-        </div>
-      </div>
-      <div class="shopdora-list-item-info-item">
-        <div class="shopdora-list-item-info-item-title">近30日销售额:</div>
-        <div class="shopdora-list-item-info-item-main">
-          <span class="shopdora-list-item-info-item-main-span span-cuesor">{{
-            salesAmount30DayUnitType ? productList.salesAmount30Day : productList.salesAmount30DayUnit
-          }}</span>
-          <span class="shopdora-list-item-info-item-main-icon"
-            ><t-tooltip :content="salesAmount30DayUnitType ? '点击切换人民币' : '点击切换本土货币'"
-              ><SwapIcon @click="salesAmount30DayUnitType = !salesAmount30DayUnitType" size="12px" /></t-tooltip
-          ></span>
-        </div>
-      </div>
-      <div class="shopdora-list-item-info-item">
-        <div class="shopdora-list-item-info-item-title">总销量:</div>
-        <div class="shopdora-list-item-info-item-main">
-          <span class="shopdora-list-item-info-item-main-span span-cuesor">{{ productList.sales ?? '未收录' }}</span>
-        </div>
-      </div>
-      <div class="shopdora-list-item-info-item">
-        <div class="shopdora-list-item-info-item-title">总销售额:</div>
-        <div class="shopdora-list-item-info-item-main">
-          <span class="shopdora-list-item-info-item-main-span span-cuesor">{{
-            salesAmountUnitType ? productList.salesAmount : productList.salesAmountUnit
-          }}</span>
-          <span class="shopdora-list-item-info-item-main-icon"
-            ><t-tooltip :content="salesAmountUnitType ? '点击切换人民币' : '点击切换本土货币'"
-              ><SwapIcon @click="salesAmountUnitType = !salesAmountUnitType" size="12px" /></t-tooltip
-          ></span>
-        </div>
-      </div>
-    </div>
-    <div class="shopdora-list-item-button">
-      <div class="list-specification"></div>
-      <div class="shopdora-list-item-button-item">
-        <button class="button">综合评价</button>
-        <button class="button">综合分析</button>
-      </div>
-      <div class="shopdora-list-item-button-item">
-        <button class="button">流量分析</button>
-        <button class="button">市场分析</button>
-      </div>
-    </div>
-  </div>
-  <HelloWorld />
+<div>yangdandan</div>
 </template>
 
 <style lang="less">
