@@ -2,19 +2,13 @@
  * @Author: xiaohe
  * @Date: 2023-06-07 10:54:51
  * @LastEditors: xiaohe xiaohe@moziapi.com
- * @LastEditTime: 2023-06-12 15:38:13
+ * @LastEditTime: 2023-07-18 12:14:31
  * @FilePath: /chromeProductList/src/components/HelloWorld.vue
 -->
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { InfoCircleIcon, JumpIcon, SwapIcon } from "tdesign-icons-vue-next";
-import {
-  productBrand,
-  productTimeDay,
-  productTime,
-  productSalesRateD30,
-} from "../../src/hooks/productListInfo";
-import { productInfo, initData, login, goshopdora } from './index';
+import { productInfo, initData, goshopdora } from './index';
 const itemid = ref("123123");
 const site = ref("sg");
 
